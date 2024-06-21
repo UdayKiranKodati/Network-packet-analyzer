@@ -1,0 +1,15 @@
+from scapy.all import *
+
+def packet_callback(packet):
+    print(packet.show())
+
+def main():
+    print("Starting network packet analyzer...")
+    try:
+        # Start sniffing packets on the network interface
+        sniff(prn=packet_callback, store=0)
+    except KeyboardInterrupt:
+        print("Stopped network packet analyzer")
+
+if __name__ == "__main__":
+    main()
